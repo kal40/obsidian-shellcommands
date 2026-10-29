@@ -257,7 +257,7 @@ export class SC_MainSettingsTab extends PluginSettingTab {
                         }
 
                         // Show or hide the shell command.
-                        const shell_command_element = document.querySelector("div.SC-id-" + shell_command_id);
+                        const shell_command_element = container_element.querySelector("div.SC-id-" + shell_command_id);
                         if (!shell_command_element) {
                             throw new Error("Shell command setting element does not exist with selector div.SC-id-" + shell_command_id);
                         }

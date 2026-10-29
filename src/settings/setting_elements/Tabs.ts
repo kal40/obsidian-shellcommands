@@ -122,7 +122,8 @@ export function createTabs(container_element: HTMLElement, tabs: Tabs, activateT
                 throw new Error("Tab button has no 'activateTab' HTML attribute! Murr!");
             }
             const activate_tab_id = activateTabAttribute.value;
-            const tab_content: HTMLElement | null = document.getElementById(activate_tab_id);
+            // Search within the container, not the document: Obsidian 1.14+ renders setting tabs before attaching them to the document.
+            const tab_content: HTMLElement | null = container_element.querySelector("#" + activate_tab_id);
             if (null === tab_content) {
                 throw new Error("No tab content was found with activate_tab_id '"+activate_tab_id+"'! Hmph!");
             }
